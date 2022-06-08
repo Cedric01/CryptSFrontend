@@ -4,13 +4,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import {HttpClientModule} from '@angular/common/http';
+
+import { AgGridModule } from 'ag-grid-angular';
+
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthButtonComponentComponent } from './auth-button-component/auth-button-component.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthButtonComponentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AgGridModule,
+    AppRoutingModule,
+    HttpClientModule,
+
+    AuthModule.forRoot({
+      domain: 'dev-6texbb02.us.auth0.com',
+      clientId: 'GvftYXetnuWJlYPKQLPje4ZzBFMjEB7r'
+    }),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
